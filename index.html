@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produktivity Assistant - Event Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#event-form-section">Planera Event</a></li>
+      <li><a href="#event-list-section">Lista Händelser</a></li>
+    </ul>
+  </nav>
+  
+  <h1>Event Planner</h1>
+
+  <div id="event-form-section">
+    <h2>Skapa / Redigera Händelse</h2>
+    <form id="eventForm">
+      <label for="eventName">Namn på händelse:</label>
+      <input type="text" id="eventName" required />
+
+      <label for="eventStart">Starttid (YYYY-MM-DD HH:MM):</label>
+      <input type="datetime-local" id="eventStart" required />
+
+      <label for="eventEnd">Sluttid (YYYY-MM-DD HH:MM):</label>
+      <input type="datetime-local" id="eventEnd" required />
+
+      <button type="submit" id="saveEventBtn">Spara Händelse</button>
+    </form>
+  </div>
+
+  <div id="event-list-section">
+    <h2>Alla Händelser</h2>
+    <select id="filterSelect">
+      <option value="all">Visa alla</option>
+      <option value="upcoming">Kommande</option>
+      <option value="past">Tidigare</option>
+    </select>
+    <ul id="eventList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
