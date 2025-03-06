@@ -135,3 +135,115 @@ body {
     text-decoration: underline;
   }
   
+
+/* Navig */
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    margin-bottom: 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+/* for habits */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-box {
+    background-color: #eee;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.filter-box {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 8px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.habit-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.habit-item.low {
+    border-left: 5px solid green;
+}
+
+.habit-item.medium {
+    border-left: 5px solid orange;
+}
+
+.habit-item.high {
+    border-left: 5px solid red;
+}
+
+.count-buttons button {
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.delete-button {
+    background-color: #ff4444;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}
