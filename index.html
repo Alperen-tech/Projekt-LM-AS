@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+    
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Habit</a></li>
+                <li><a href="#">Event</a></li>
+            </ul>
+        </nav>
+    
+        
+        <div class="container">
+            <h1>My Habit Tracker</h1>
+            
+            <div class="form-box">
+                <h2>Add New Habit</h2>
+                <input type="text" id="habitInput" placeholder="Enter your habit">
+                <select id="priorityInput">
+
+                    <option value="low">Low Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="high">High Priority</option>
+
+                </select>
+
+                <button onclick="addHabit()">Add</button>
+            </div>
+
+            <div class="filter-box">
+                <label for="filterSelect">Show Priority:</label>
+
+                <select id="filterSelect" onchange="filterHabits()">
+                    <option value="all">All Habits</option>
+                    <option value="low">Low Priority</option>
+                     <option value="medium">Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+
+            </div>
+
+           
+        <div id="habitList">
+          
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
