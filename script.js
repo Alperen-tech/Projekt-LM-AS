@@ -1,3 +1,4 @@
+
 let events = [];
 let editIndex = null; 
 
@@ -208,3 +209,5 @@ function displayHabits() {
 
 
 displayHabits();
+displayHabits();
+
