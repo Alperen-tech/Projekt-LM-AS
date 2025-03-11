@@ -172,6 +172,25 @@ function deleteHabit(id) {
 function filterHabits() {
   displayHabits();
 }
+function sortHabits() {
+  let sortValue = document.getElementById('habitSortSelect').value;
+
+  if (sortValue === 'count-asc') {
+    habits.sort((a, b) => a.count - b.count);
+  } else if (sortValue === 'count-desc') {
+    habits.sort((a, b) => b.count - a.count);
+  } else if (sortValue === 'priority-asc') {
+    const priorityOrder = { 'low': 1, 'medium': 2, 'high': 3 };
+    habits.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+  } else if (sortValue === 'priority-desc') {
+    const priorityOrder = { 'low': 1, 'medium': 2, 'high': 3 };
+    habits.sort((a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]);
+  }
+
+  displayHabits();
+  sortHabits(); // Anropa sortering innan vanor visas
+
+}
 
 
 function displayHabits() {

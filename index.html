@@ -89,6 +89,18 @@
 
             </div>
 
+            <div class="sort-box">
+              <label for="habitSortSelect">Sortera efter:</label>
+              <select id="habitSortSelect" onchange="sortHabits()">
+                <option value="none">Ingen sortering</option>
+                <option value="count-asc">Repetitioner (stigande)</option>
+                <option value="count-desc">Repetitioner (fallande)</option>
+                <option value="priority-asc">Prioritet (stigande)</option>
+                <option value="priority-desc">Prioritet (fallande)</option>
+              </select>
+            </div>
+            
+
            
         <div id="habitList">
           
