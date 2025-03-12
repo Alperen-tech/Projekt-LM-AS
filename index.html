@@ -1,101 +1,122 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Produktivity Assistant - Event Planner</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Produktivity Assistant</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Enkel CSS för att dölja/svisa sidor */
+    .page-section {
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  
   <nav>
     <ul>
-      <li><a href="#event-form-section">Planera Event</a></li>
-      <li><a href="#event-list-section">Lista Händelser</a></li>
+      <li><a href="#" onclick="showSection('home')">Startsida</a></li>
+      <li><a href="#" onclick="showSection('events')">Event</a></li>
+      <li><a href="#" onclick="showSection('habits')">Habit</a></li>
     </ul>
   </nav>
+
+ 
+  <div id="home" class="page-section">
+    <h1>Welcome to Productivity Assistant</h1>
+    <p>Your personal tool to track events and build better habits!</p>
   
-  <h1>Event Planner</h1>
-
-  <div id="event-form-section">
-    <h2>Skapa / Redigera Händelse</h2>
-    <form id="eventForm">
-      <label for="eventName">Namn på händelse:</label>
-      <input type="text" id="eventName" required />
-
-      <label for="eventStart">Starttid (YYYY-MM-DD HH:MM):</label>
-      <input type="datetime-local" id="eventStart" required />
-
-      <label for="eventEnd">Sluttid (YYYY-MM-DD HH:MM):</label>
-      <input type="datetime-local" id="eventEnd" required />
-
-      <button type="submit" id="saveEventBtn">Spara Händelse</button>
-    </form>
+    <div class="home-content">
+      <div class="home-box">
+        <h2>Event Planner</h2>
+        <p>Schedule your tasks and never miss an important event.</p>
+        <a href="#" onclick="showSection('events')" class="home-button">Go to Events</a>
+      </div>
+  
+      <div class="home-box">
+        <h2>Habit Tracker</h2>
+        <p>Track your daily habits and improve consistency.</p>
+        <a href="#" onclick="showSection('habits')" class="home-button">Go to Habits</a>
+      </div>
+    </div>
+  </div>
+  
+   
   </div>
 
-  <div id="event-list-section">
-    <h2>Alla Händelser</h2>
-    <select id="filterSelect">
-      <option value="all">Visa alla</option>
-      <option value="upcoming">Kommande</option>
-      <option value="past">Tidigare</option>
-    </select>
-    <ul id="eventList"></ul>
+  <!-- Event-sidan -->
+  <div id="events" class="page-section">
+    <h1>Event Planner</h1>
+    <div id="event-form-section">
+      <h2>Skapa / Redigera Händelse</h2>
+      <form id="eventForm">
+        <label for="eventName">Namn på händelse:</label>
+        <input type="text" id="eventName" required />
+
+        <label for="eventStart">Starttid (YYYY-MM-DD HH:MM):</label>
+        <input type="datetime-local" id="eventStart" required />
+
+        <label for="eventEnd">Sluttid (YYYY-MM-DD HH:MM):</label>
+        <input type="datetime-local" id="eventEnd" required />
+
+        <button type="submit" id="saveEventBtn">Spara Händelse</button>
+      </form>
+    </div>
+
+    <div id="event-list-section">
+      <h2>Alla Händelser</h2>
+      <select id="eventFilterSelect">
+        <option value="all">Visa alla</option>
+        <option value="upcoming">Kommande</option>
+        <option value="past">Tidigare</option>
+      </select>
+      <ul id="eventList"></ul>
+    </div>
+  </div>
+
+  <!-- Habit-sidan -->
+  <div id="habits" class="page-section">
+    <div class="container">
+      <h1>My Habit Tracker</h1>
+      
+      <div class="form-box">
+        <h2>Add New Habit</h2>
+        <input type="text" id="habitInput" placeholder="Enter your habit">
+        <select id="priorityInput">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+        <button onclick="addHabit()">Add</button>
+      </div>
+
+      <div class="filter-box">
+        <label for="habitFilterSelect">Show Priority:</label>
+        <select id="habitFilterSelect" onchange="filterHabits()">
+          <option value="all">All Habits</option>
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+      </div>
+
+      <div class="sort-box">
+        <label for="habitSortSelect">Sort by:</label>
+        <select id="habitSortSelect" onchange="sortHabits()">
+          <option value="none">No sorting</option>
+          <option value="count-asc">Repetitions (Ascending)</option>
+          <option value="count-desc">Repetitions (Descending)</option>
+          <option value="priority-asc">Priority (Ascending)</option>
+          <option value="priority-desc">Priority (Descending)</option>
+        </select>
+      </div>
+      
+      
+
+      <div id="habitList"></div>
+    </div>
   </div>
 
   <script src="script.js"></script>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habit Tracker</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <body>
-    
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Habit</a></li>
-                <li><a href="#">Event</a></li>
-            </ul>
-        </nav>
-    
-        
-        <div class="container">
-            <h1>My Habit Tracker</h1>
-            
-            <div class="form-box">
-                <h2>Add New Habit</h2>
-                <input type="text" id="habitInput" placeholder="Enter your habit">
-                <select id="priorityInput">
-
-                    <option value="low">Low Priority</option>
-                    <option value="medium">Medium Priority</option>
-                    <option value="high">High Priority</option>
-
-                </select>
-
-                <button onclick="addHabit()">Add</button>
-            </div>
-
-            <div class="filter-box">
-                <label for="filterSelect">Show Priority:</label>
-
-                <select id="filterSelect" onchange="filterHabits()">
-                    <option value="all">All Habits</option>
-                    <option value="low">Low Priority</option>
-                     <option value="medium">Medium Priority</option>
-                    <option value="high">High Priority</option>
-                </select>
-
-            </div>
-
-           
-        <div id="habitList">
-          
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    
 </body>
 </html>
